@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+<!-- main start -->
+{% block main %}
+<!-- File section -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 project">
+			<h4>
+				子课题列表
+			</h4>
+			{% for item in projects %}
+				{% if not item.isShare %}
+					{% if item.name == myProject.name or isManager %}
+						<a href ="/index/fileManager/?pid={{ item.id }}" class="btn btn-warning">{{ item.name }}</a>
+					{% else %}
+						<a href ="#" class="btn btn-default">{{ item.name }}</a>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<!-- tempelates File download section -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-6 col-sm-6 tempelates_files">
+			<h4>
+				共享/模板文件列表
+				{% if  isManager %}
+					<a href="/index/fileManager/">管理模板文件</a>
+				{% endif %}
+			</h4>
+			{% for item in files %}
+				<a href="/{{item.save_path}}" >{{item.name}}</a>
+			{% endfor %}
+		</div>
+
+		<div class="col-md-6 col-sm-6 tempelates_files">
+			<h4>
+				通知/注意事项
+			</h4>
+			文件提交日期
+		</div>
+	</div>
+</section>
+{% endblock main %}
+<!-- main end -->

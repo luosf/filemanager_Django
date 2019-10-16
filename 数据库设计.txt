@@ -1,0 +1,14 @@
+TABLE1  UsersInfo 可用django自带的
+ID-----username-----pwd--
+1 -----luosehgne-----2135--
+
+TABLE2  Files
+ID-----userid---ProjectId----filename---path--time_upload-----------status
+01--------1---------11--------项目报告.doc---path--2019-4-5 12:56:58----上传成功
+
+TABLE3 ProjectName
+ID-----projectname-------
+01--------**项目---------
+
+
+

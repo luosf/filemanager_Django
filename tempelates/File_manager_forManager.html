@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- main start -->
+{% block main %}
+<!-- File section -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 sub_project_files">
+				<h4 class="">文件列表</h4>
+				<table class="table table-striped">
+					<tr>
+						<th>项目名</th>
+						<th>文件名</th>
+						<th>提交日期</th>
+						<th>状态</th>
+						<th><span>操作</span></th>
+					</tr>
+					{% for item in files %}
+						<tr>
+							<td>{{item.project}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.time_upload}}</td>
+							<td>{{item.info_status}}</td>
+							<td>
+								<a href="/index/delete/?fid={{item.id}}" id="delete_btn" class="btn btn-primary btn-sm">删除</a>
+								<a href="/{{item.save_path}}" class="btn btn-info btn-sm">下载</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+		</div>
+	</div>
+</section>
+
+{% endblock main %}
+<!-- main end -->

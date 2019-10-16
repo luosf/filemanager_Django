@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+<!-- main start -->
+{% block main %}
+<!-- User section -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 sub_project_files">
+				<h4 class="">文件列表</h4>
+				<table class="table table-striped">
+					<tr>
+						<th>用户ID</th>
+						<th>用户名</th>
+						<th>密码</th>
+						<th>角色ID</th>
+						<th>项目文件夹</th>
+						<th><span>操作</span></th>
+					</tr>
+					{% for row in users %}
+                    <tr>
+                        <td> {{row.id}} </td>
+						<td> {{row.username}} </td>
+						<td> {{row.password }}</td>
+						<td> {{row.role}} </td>
+						<td> {{row.project_name}} </td>
+						<td><a href="/userManager/userManager_del/?id={{row.id}}" class="btn btn-primary btn-sm">删除</a></td>
+                    </tr>
+					{% endfor %}
+					
+				</table>
+				<!-- 添加用户 -->
+				<div class="login-form">
+			    <form action="/userManager/userManager_add/" method="post">
+			        <h4 class="">添加用户</h4>       
+			        <div class="form-group">
+			            <input type="text" class="form-control" name="username" placeholder="Username/用户名" required="required">
+			        </div>
+			        <div class="form-group">
+			            <input type="password" class="form-control" name="pwd" placeholder="Password/密码" required="required">
+			        </div>
+                    <h5>用户类型</h5>
+					<div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" value=0 id="role" name="role" required="required">
+                        <label class="custom-control-label" for="defaultChecked">root</label>
+                        <br>
+                        <input type="radio" class="custom-control-input" value=1 id="role" name="role" required="required">
+                        <label class="custom-control-label" for="defaultChecked">管理员</label>
+                        <br>
+                        <input type="radio" class="custom-control-input" value=2 id="role" name="role" required="required">
+                        <label class="custom-control-label" for="defaultChecked">普通用户</label>
+                        <br>
+                        <input type="radio" class="custom-control-input" value=3 id="role" name="role" checked required="required">
+                        <label class="custom-control-label" for="defaultChecked">浏览用户</label>
+                    </div>
+					<div class="form-group">
+			            <input type="text" class="form-control" name="project_name" placeholder="项目文件夹名称" required="required">
+			        </div>
+			        <div class="form-group">
+			            <button type="submit" class="btn btn-primary btn-block">添加用户</button>
+			        </div>      
+			    </form>
+			    </div>
+		</div>
+	</div>
+</section>
+{% endblock main %}
+<!-- main end -->

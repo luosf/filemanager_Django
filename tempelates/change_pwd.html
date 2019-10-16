@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<!-- main start -->
+{% block main %}
+<!-- Login section -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 project">
+		
+			<div class="login-form">
+			    <form action="/index/change_pwd/" method="post">
+			        <h4 class="">修改密码</h4>
+					<div class="form-group">
+			            <input type="password" class="form-control" name="pwd" placeholder="初始 Password/密码" required="required">
+			        </div>       
+			        <div class="form-group">
+			            <input type="password" class="form-control" name="pwd1" placeholder="修改 Password/密码" required="required">
+			        </div>
+			        <div class="form-group">
+			            <input type="password" class="form-control" name="pwd2" placeholder="确认 Password/密码" required="required">
+			        </div>
+					<p> <span style="font-size:7px;" class="info-waring">{{error_msg}}</span></p>
+			        <div class="form-group">
+			            <button type="submit" class="btn btn-primary btn-block">确认修改</button>
+			        </div>      
+			    </form>
+			</div>
+				
+		</div>
+	</div>
+</section>
+{% endblock main %}
+<!-- main end -->
